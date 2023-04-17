@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15.2-alpine
+    environment:
+      POSTGRES_USER: depixen
+      POSTGRES_PASSWORD: depixen-pass
+      POSTGRES_DB: postgres
+    ports:
+      - "5439:5432"
+    volumes:
+      - depixen-volume:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  depixen-volume:
